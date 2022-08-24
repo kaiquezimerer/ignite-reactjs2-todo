@@ -1,0 +1,28 @@
+ /* Delete button styles */
+
+.deleteButton {
+  border: none;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms;
+  cursor: pointer;
+}
+
+.deleteButton svg path {
+  fill: #808080;
+  transition: fill 200ms;
+}
+
+.deleteButton:hover {
+  background-color: var(--gray-400);
+}
+
+.deleteButton:hover svg path {
+  fill: var(--danger);
+}
