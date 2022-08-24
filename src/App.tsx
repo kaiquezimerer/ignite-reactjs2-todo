@@ -1,5 +1,6 @@
 import Input from './components/Input';
 import Checkbox from './components/Checkbox';
+import CreateButton from './components/CreateButton';
 
 import LogoImg from './assets/logo.svg';
 
@@ -17,6 +18,7 @@ function App() {
       <section>
         <Input type="text" placeholder="Adicione uma nova tarefa"/>
         <Checkbox />
+        <CreateButton />
       </section>
     </main>
   );

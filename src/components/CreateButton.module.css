@@ -1,0 +1,22 @@
+/* Create Button styles */
+
+.createButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--gray-100);
+  width: 90px;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--blue-dark);
+  cursor: pointer;
+  transition: background-color 200ms;
+}
+
+.createButton:hover {
+  background-color: var(--blue);
+}
