@@ -1,26 +1,40 @@
 import { useState } from 'react';
 
+import { TodoItem } from '../App';
+
 import Checkbox from './Checkbox';
 import DeleteButton from './DeleteButton';
 
 import styles from './Task.module.css';
 
-function Task() {
-  const [checked, setChecked] = useState<boolean>(false);
+interface TaskProps {
+  todoItem: TodoItem;
+  handleChecked: (id: string) => void;
+  handleDelete: (id: string) => void;
+}
 
-  function handleChecked() {
-    setChecked(!checked);
+function Task({ todoItem, handleChecked, handleDelete }: TaskProps) {
+  const { id, checked, content } = todoItem;
+
+  function handleOnChange() {
+    handleChecked(id);
+  }
+
+  function handleOnClick() {
+    handleDelete(id);
   }
 
   return (
-    <div className={`${styles.task} ${checked ? styles.checked: ''}`}>
+    <li className={`${styles.task} ${checked ? styles.checked: ''}`}>
       <Checkbox
         checked={checked}
-        onChange={handleChecked}
+        onChange={handleOnChange}
       />
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem ullam sequi, Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem</p>
-      <DeleteButton />
-    </div>
+      <div>
+        <p>{content}</p>
+      </div>
+      <DeleteButton onClick={handleOnClick} />
+    </li>
   );
 }
 

@@ -1,3 +1,5 @@
+import { ChangeEvent, FormEvent, useState } from 'react';
+
 import Input from './components/Input';
 import Task from './components/Task';
 import CreateButton from './components/CreateButton';
@@ -6,7 +8,55 @@ import LogoImg from './assets/logo.svg';
 
 import styles from './App.module.css';
 
+export interface TodoItem {
+  id: string;
+  checked: boolean;
+  content: string;
+}
+
 function App() {
+  const [content, setContent] = useState('');
+  const [todoList, setTodoList] = useState<TodoItem[]>([]);
+
+  function handleChangeContent(event: ChangeEvent<HTMLInputElement>) {
+    setContent(event.target.value);
+  }
+
+  function handleAddNewTask(event: FormEvent) {
+    event.preventDefault();
+
+    if (content.length) {
+      const newTodoItem = {
+        id: new Date().toISOString(),
+        content,
+        checked: false,
+      };
+
+      setTodoList([
+        ...todoList,
+        newTodoItem,
+      ]);
+
+      setContent('');
+    }
+  }
+
+  function handleChecked(id: string) {
+    const newTodoList = todoList.map(todoItem => {
+      return todoItem.id === id ? { ...todoItem, checked: !todoItem.checked } : todoItem;
+    });
+
+    setTodoList(newTodoList);
+  }
+
+  function handleDelete(id: string) {
+    const newTodoList = todoList.filter(todoItem => {
+      return todoItem.id !== id;
+    });
+
+    setTodoList(newTodoList);
+  }
+
   return (
     <main>
       {/* Header */}
@@ -17,10 +67,30 @@ function App() {
       </header>
       {/* Content */}
       <section className={styles.content}>
-        <div className={styles.createInputWrapper}>
-          <Input type="text" placeholder="Adicione uma nova tarefa"/>
-          <CreateButton />
-        </div>
+        {/* Create Task input */}
+        <form 
+          onSubmit={handleAddNewTask} 
+          className={styles.createInputWrapper}
+        >
+          <Input 
+            type="text"
+            value={content}
+            onChange={handleChangeContent}
+            placeholder="Adicione uma nova tarefa"
+          />
+          <CreateButton type="submit" />
+        </form>
+        {/* Task list */}
+        <ul>
+          {todoList.map(todoItem => {
+            return (<Task 
+              key={todoItem.id} 
+              todoItem={todoItem} 
+              handleChecked={handleChecked} 
+              handleDelete={handleDelete}
+            />);
+          })}
+        </ul>
       </section>
     </main>
   );
