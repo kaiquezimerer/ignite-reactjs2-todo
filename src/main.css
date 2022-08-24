@@ -31,3 +31,10 @@ body {
   font-weight: 400;
   font-family: 'Inter', sans-serif;
 }
+
+/* Viewport <= 730px */
+@media screen and (max-width: 730px) {
+  html {
+    font-size: 87.5%;
+  }
+}
