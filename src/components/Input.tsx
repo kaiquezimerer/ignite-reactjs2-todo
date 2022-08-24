@@ -4,7 +4,7 @@ import styles from './Input.module.css';
 
 function Input(props: InputHTMLAttributes<HTMLInputElement>) {
   return (
-    <input {...props} className={styles.input} />
+    <input {...props} type="text" className={styles.input} />
   );
 }
 

@@ -1,0 +1,19 @@
+.checkbox {
+  width: 0;
+  height: 0;
+}
+
+.checkbox::after {
+  display: block;
+  cursor: pointer;
+  content: url(../assets/unchecked.svg);
+  transition: opacity 300ms;
+}
+
+.checkbox:checked::after {
+  content: url(../assets/checked.svg);
+}
+
+.checkbox:hover::after{
+  opacity: 0.8;
+}

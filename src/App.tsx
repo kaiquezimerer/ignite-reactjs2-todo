@@ -1,4 +1,5 @@
 import Input from './components/Input';
+import Checkbox from './components/Checkbox';
 
 import LogoImg from './assets/logo.svg';
 
@@ -15,6 +16,7 @@ function App() {
       </header>
       <section>
         <Input type="text" placeholder="Adicione uma nova tarefa"/>
+        <Checkbox />
       </section>
     </main>
   );
