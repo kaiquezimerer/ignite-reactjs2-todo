@@ -33,3 +33,35 @@
 .createInputWrapper button {
   flex-shrink: 0;
 }
+
+.todo {
+  margin-top: 4rem;
+}
+
+.todoHead {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.todoHead h2 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1rem;
+}
+
+.todoHead h2:first-child {
+  color: var(--blue);
+}
+
+.todoHead h2:last-child {
+  color: var(--purple);
+}
+
+.todoHead h2 > span {
+  font-size: 0.75rem;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  padding: 2px 8px;
+  border-radius: 999px;
+}

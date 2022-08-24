@@ -57,6 +57,9 @@ function App() {
     setTodoList(newTodoList);
   }
 
+  const total = todoList.length;
+  const totalChecked = todoList.filter(todoItem => todoItem.checked).length;
+
   return (
     <main>
       {/* Header */}
@@ -81,7 +84,12 @@ function App() {
           <CreateButton type="submit" />
         </form>
         {/* Task list */}
-        <ul>
+        <section className={styles.todo}>
+          <div className={styles.todoHead}> 
+            <h2>Tarefas criadas <span>{total}</span></h2>
+            <h2>Concluídas <span>{total ? `${totalChecked} de ${total}` : 0}</span></h2>
+          </div>
+          <ul>
           {todoList.map(todoItem => {
             return (<Task 
               key={todoItem.id} 
@@ -91,6 +99,7 @@ function App() {
             />);
           })}
         </ul>
+        </section>
       </section>
     </main>
   );
