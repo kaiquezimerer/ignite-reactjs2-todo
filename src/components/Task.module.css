@@ -1,6 +1,6 @@
 .task {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 5% auto 5%;
   width: 100%;
   max-width: 730px;
   font-size: 0.875rem;
@@ -20,7 +20,8 @@
 }
 
 .task p {
-  margin-left: 2.4rem;
+  margin: 0 1rem;
+  word-break: break-word;
 }
 
 .task button {
