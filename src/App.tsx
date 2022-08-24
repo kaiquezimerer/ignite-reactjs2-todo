@@ -1,7 +1,6 @@
 import Input from './components/Input';
-import Checkbox from './components/Checkbox';
+import Task from './components/Task';
 import CreateButton from './components/CreateButton';
-import DeleteButton from './components/DeleteButton';
 
 import LogoImg from './assets/logo.svg';
 
@@ -18,9 +17,9 @@ function App() {
       </header>
       <section>
         <Input type="text" placeholder="Adicione uma nova tarefa"/>
-        <Checkbox />
         <CreateButton />
-        <DeleteButton />
+        <Task />
+        <Task />
       </section>
     </main>
   );

@@ -15,7 +15,7 @@
 }
 
 .deleteButton svg path {
-  fill: #808080;
+  fill: var(--gray-300);
   transition: fill 200ms;
 }
 
