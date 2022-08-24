@@ -1,0 +1,15 @@
+/* App Styles */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 200px;
+  background-color: var(--gray-700);
+}
+
+.header img {
+  width: 126px;
+  height: 48px;
+}
