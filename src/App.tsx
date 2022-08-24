@@ -15,11 +15,12 @@ function App() {
           <img src={LogoImg} />
         </h1>
       </header>
-      <section>
-        <Input type="text" placeholder="Adicione uma nova tarefa"/>
-        <CreateButton />
-        <Task />
-        <Task />
+      {/* Content */}
+      <section className={styles.content}>
+        <div className={styles.createInputWrapper}>
+          <Input type="text" placeholder="Adicione uma nova tarefa"/>
+          <CreateButton />
+        </div>
       </section>
     </main>
   );

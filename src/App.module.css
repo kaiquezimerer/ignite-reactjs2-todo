@@ -13,3 +13,23 @@
   width: 126px;
   height: 48px;
 }
+
+.content {
+  width: 100%;
+  max-width: 730px;
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.createInputWrapper {
+  display: flex;
+  margin-top: -27px;
+}
+
+.createInputWrapper input {
+  margin-right: 0.5rem;
+}
+
+.createInputWrapper button {
+  flex-shrink: 0;
+}

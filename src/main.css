@@ -16,6 +16,8 @@
   --blue: #4EA8DE;
   --purple-dark: #5E60CE;
   --purple: #8284FA;
+
+  background-color: var(--gray-600);
 }
 
 * {
