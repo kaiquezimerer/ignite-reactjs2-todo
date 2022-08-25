@@ -5,6 +5,7 @@ import Task from './components/Task';
 import CreateButton from './components/CreateButton';
 
 import LogoImg from './assets/logo.svg';
+import ClipboardImg from './assets/clipboard.svg';
 
 import styles from './App.module.css';
 
@@ -76,6 +77,7 @@ function App() {
           className={styles.createInputWrapper}
         >
           <Input 
+            autoFocus
             type="text"
             value={content}
             onChange={handleChangeContent}
@@ -89,16 +91,27 @@ function App() {
             <h2>Tarefas criadas <span>{total}</span></h2>
             <h2>Concluídas <span>{total ? `${totalChecked} de ${total}` : 0}</span></h2>
           </div>
-          <ul>
-          {todoList.map(todoItem => {
-            return (<Task 
-              key={todoItem.id} 
-              todoItem={todoItem} 
-              handleChecked={handleChecked} 
-              handleDelete={handleDelete}
-            />);
-          })}
-        </ul>
+          {
+            !!todoList.length ? (
+              <ul>
+                {todoList.map(todoItem => {
+                  return (<Task 
+                    key={todoItem.id} 
+                    todoItem={todoItem} 
+                    handleChecked={handleChecked} 
+                    handleDelete={handleDelete}
+                  />);
+                })}
+              </ul>) : (
+                <div className={styles.emptySection}>
+                  <img src={ClipboardImg} alt="Vázio" />
+                  <p>
+                    <span>Você ainda não tem tarefas cadastradas</span>
+                    Crie tarefas e organize seus itens a fazer
+                  </p>
+                </div>
+            )
+          }
         </section>
       </section>
     </main>
